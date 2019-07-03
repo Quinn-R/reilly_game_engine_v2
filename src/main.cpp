@@ -5,26 +5,27 @@
 #include "move/Move.hpp"
 #include "object/Object.hpp"
 #include "timeUtil/TimeUtil.hpp"
+#include "mapEditor/MapEditor.hpp"
 
-void createObjects();
-void setObjShapes();
-void resetObjShapes();
+/*void createObjects();
 void isWin();
 
-void level1();
+void level1();*/
+
+void setObjShapes();
+void resetObjShapes();
 
 Graphics graphics;
 Input input;
 Move move;
 TimeUtil timer;
+MapEditor map;
 
 std::vector<Object> objects;
 std::vector<sf::RectangleShape> objShapes;
 
 int main() {
-	//createObjects();
-	level1();
-	setObjShapes();
+	objects.push_back(Object());
 
 	while(graphics.isOpen()) {
 		timer.setTime();
@@ -32,6 +33,13 @@ int main() {
 		input.events(
 			graphics.getWindow()
 		);
+
+		if(input.getLeftMousePressed()) {
+			//sf::Vector2f gridSize, bool isMousePressed
+			map.setObjGrid(sf::Vector2f(32, 32), 1, graphics.getWindow());
+			//std::string objType, sf::Vector2f objSize, sf::Vector2f objPos, sf::Color col, bool isColl, int objSpeed
+			objects.push_back(Object("na", sf::Vector2f(32, 32), map.getObjPos(), sf::Color::Black, 1, 0));
+		}
 
 		move.resetCollide();
 		move.collide(objShapes, 0);
@@ -42,19 +50,12 @@ int main() {
 
 		resetObjShapes();
 
-		isWin();
+		//isWin();
 
 		graphics.draw(sf::Color::White, objShapes);
 	}
 
 	return 0;
-}
-
-void createObjects() {
-	for(int i = 0; i < 10; i++) {
-		objects.push_back(Object());
-		objects[i].setPosition(sf::Vector2f(192, 32 * (i + 1)));
-	}
 }
 
 void setObjShapes() {
@@ -66,6 +67,13 @@ void setObjShapes() {
 void resetObjShapes() {
 	objShapes.clear();
 	setObjShapes();
+}
+
+/*void createObjects() {
+	for(int i = 0; i < 10; i++) {
+		objects.push_back(Object());
+		objects[i].setPosition(sf::Vector2f(192, 32 * (i + 1)));
+	}
 }
 
 void isWin() {
@@ -109,4 +117,4 @@ void level1() {
 	objects[31].setPosition(sf::Vector2f(352 + 100, objects[29].getPosition().y));
 
 	objects[0].setPosition(sf::Vector2f(objects[31].getPosition().x + 32, objects[31].getPosition().y));
-}
+}*/
