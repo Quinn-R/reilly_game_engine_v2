@@ -19,7 +19,7 @@ public:
 	void setObjGrid(sf::Vector2f gridSize);
 	void createObj(sf::Vector2f gridSize, sf::RenderWindow &window);
 
-	sf::Vector2f deleteObj();
+	int deleteObj(std::vector<sf::RectangleShape> &objShapes, sf::RenderWindow &window);
 	sf::Vector2f getObjPos();
 };
 

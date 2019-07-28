@@ -4,13 +4,16 @@ void Input::events(sf::RenderWindow& window) {
 	while(window.pollEvent(event))
 	{
 		leftMousePressed = 0;
-		
+		rightMousePressed = 0;
+
 		if (event.type == sf::Event::Closed || sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
 			window.close();
 
 		if (event.type == sf::Event::MouseButtonPressed) {
 			if (event.mouseButton.button == sf::Mouse::Left)
 				leftMousePressed = 1;
+			if (event.mouseButton.button == sf::Mouse::Right)
+				rightMousePressed = 1;
 		}
 
 	}

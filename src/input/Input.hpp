@@ -9,6 +9,7 @@ private:
 	sf::Event event;
 
 	bool leftMousePressed;
+	bool rightMousePressed;
 public:
 	Input();
 	~Input();
@@ -16,7 +17,9 @@ public:
 	void events(sf::RenderWindow& window);
 
 	std::vector<int>& getMoves();
+
 	bool getLeftMousePressed();
+	bool getRightMousePressed();
 };
 
 #endif
