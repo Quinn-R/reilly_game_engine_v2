@@ -36,7 +36,7 @@ int main() {
 
 		if(input.getLeftMousePressed()) {
 			//sf::Vector2f gridSize, bool isMousePressed
-			map.setObjGrid(sf::Vector2f(32, 32), 1, graphics.getWindow());
+			map.createObj(sf::Vector2f(32, 32), graphics.getWindow());
 			//std::string objType, sf::Vector2f objSize, sf::Vector2f objPos, sf::Color col, bool isColl, int objSpeed
 			objects.push_back(Object("na", sf::Vector2f(32, 32), map.getObjPos(), sf::Color::Black, 1, 0));
 		}
