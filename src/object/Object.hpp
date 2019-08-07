@@ -9,11 +9,12 @@ private:
 	sf::RectangleShape objectShape;
 
 	bool objectIsCollidable;
+	bool isVis;
 
 	int objectSpeed;
 public:
 	Object();
-	Object(std::string objType, sf::Vector2f objSize, sf::Vector2f objPos, sf::Color col, bool isColl, int objSpeed);
+	Object(std::string objType, sf::Vector2f objSize, sf::Vector2f objPos, sf::Color col, bool isColl, bool vis, int objSpeed);
 
 	void setPosition(sf::Vector2f);
 	sf::Vector2f getPosition();
@@ -26,6 +27,12 @@ public:
 
 	void setType(std::string objType);
 	std::string getType();
+
+	void setOrigin(sf::Vector2f objOrigin);
+	void setRotation(float objRotation);
+
+	void setVisible(bool vis);
+	bool isVisible();
 };
 
 #endif

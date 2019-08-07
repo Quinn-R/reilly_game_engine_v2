@@ -9,11 +9,12 @@ Object::Object() {
 	objectShape.setOrigin(objectShape.getSize().x / 2, objectShape.getSize().y / 2);
 
 	objectIsCollidable = 0;
+	isVis = 1;
 
 	objectSpeed = 100;
 }
 
-Object::Object(std::string objType, sf::Vector2f objSize, sf::Vector2f objPos, sf::Color col, bool isColl, int objSpeed) {
+Object::Object(std::string objType, sf::Vector2f objSize, sf::Vector2f objPos, sf::Color col, bool isColl, bool vis, int objSpeed) {
 	objectType = objType;
 
 	objectShape.setSize(objSize);
@@ -22,6 +23,7 @@ Object::Object(std::string objType, sf::Vector2f objSize, sf::Vector2f objPos, s
 	//objectShape.setOrigin(objectShape.getSize().x / 2, objectShape.getSize().y / 2);
 
 	objectIsCollidable = isColl;
+	isVis = vis;
 
 	objectSpeed = objSpeed;
 }

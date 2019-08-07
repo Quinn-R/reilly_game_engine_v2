@@ -1,11 +1,13 @@
 #include "MapEditor.hpp"
 
-int MapEditor::getObjPos(std::vector<sf::RectangleShape> &objShapes, sf::RenderWindow &window) {
+int MapEditor::deleteObj(std::vector<sf::RectangleShape> &objShapes, sf::RenderWindow &window) {
     setMousePos(window);
     int answer = -1;
+    sf::FloatRect tmp;
 
     for(int i = 0; i < objShapes.size(); i++) {
-        if(objShapes[i].contains(mousePos)) {
+        tmp = objShapes[i].getGlobalBounds();
+        if(tmp.contains(mousePos)) {
             answer = i;
         }
     }

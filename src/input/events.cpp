@@ -1,11 +1,10 @@
 #include "Input.hpp"
 
 void Input::events(sf::RenderWindow& window) {
+	leftMousePressed = 0;
+	rightMousePressed = 0;
 	while(window.pollEvent(event))
 	{
-		leftMousePressed = 0;
-		rightMousePressed = 0;
-
 		if (event.type == sf::Event::Closed || sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
 			window.close();
 
