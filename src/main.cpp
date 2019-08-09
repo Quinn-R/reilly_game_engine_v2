@@ -46,7 +46,7 @@ int main() {
 		if(input.getRightMousePressed()) {
 			eraN = map.deleteObj(objShapes, graphics.getWindow());
 			if(eraN >= 0) {
-				objects[eraN].setVisible(0);
+				objects.erase(objects.begin() + eraN);
 			}
 		}
 
