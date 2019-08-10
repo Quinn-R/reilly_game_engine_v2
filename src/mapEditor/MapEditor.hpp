@@ -17,8 +17,8 @@ public:
 
 	void setMousePos(sf::RenderWindow &window);
 	void setObjGrid(sf::Vector2f gridSize);
-	void createObj(sf::Vector2f gridSize, sf::RenderWindow &window);
 
+	int createObj(sf::Vector2f gridSize, std::vector<sf::RectangleShape> &objShapes, sf::RenderWindow &window);
 	int deleteObj(std::vector<sf::RectangleShape> &objShapes, sf::RenderWindow &window);
 	sf::Vector2f getObjPos();
 };

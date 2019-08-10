@@ -39,8 +39,9 @@ int main() {
 		);
 
 		if(input.getLeftMousePressed()) {
-			map.createObj(sf::Vector2f(32, 32), graphics.getWindow());
-			objects.push_back(Object("na", sf::Vector2f(32, 32), map.getObjPos(), sf::Color::Black, 1, 1, 0));
+			if(map.createObj(sf::Vector2f(32, 32), objShapes, graphics.getWindow())) {
+				objects.push_back(Object("na", sf::Vector2f(32, 32), map.getObjPos(), sf::Color::Black, 1, 1, 0));
+			}
 		}
 
 		if(input.getRightMousePressed()) {
@@ -61,9 +62,7 @@ int main() {
 
 void setObjShapes() {
 	for(int i = 0; i < objects.size(); i++) {
-		if(objects[i].isVisible() == 1) {
-			objShapes.push_back(objects[i].getShape());
-		}
+		objShapes.push_back(objects[i].getShape());
 	}
 }
 

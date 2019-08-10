@@ -1,6 +1,6 @@
 #include "MapEditor.hpp"
 
-void MapEditor::createObj(sf::Vector2f gridSize, sf::RenderWindow &window) {
+int MapEditor::createObj(sf::Vector2f gridSize, std::vector<sf::RectangleShape> &objShapes, sf::RenderWindow &window) {
     setMousePos(window);
     setObjGrid(gridSize);
 
@@ -11,4 +11,12 @@ void MapEditor::createObj(sf::Vector2f gridSize, sf::RenderWindow &window) {
     dif.y = int(mousePos.y) - mod.y;
 
     tempObj.setPosition(sf::Vector2f(dif.x, dif.y));
+
+    for(int i = 0; i < objShapes.size(); i++) {
+        if(tempObj.getPosition() == objShapes[i].getPosition()) {
+            return 0;
+        }
+    }
+
+    return 1;
 }
