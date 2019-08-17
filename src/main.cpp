@@ -9,6 +9,7 @@
 
 void setObjShapes();
 void resetObjShapes();
+void fillObjProp();
 
 Graphics graphics;
 Input input;
@@ -20,6 +21,7 @@ int eraN;
 
 std::vector<Object> objects;
 std::vector<sf::RectangleShape> objShapes;
+std::vector<std::vector<int> > objProp;
 
 int main() {
 	objects.push_back(Object());
@@ -57,7 +59,26 @@ int main() {
 		graphics.draw(sf::Color::White, objShapes);
 	}
 
+	fillObjProp();
+	// (std::string lvlName, std::vector<sf::RectangleShape> &objShapes, std::vector<std::vector<<int> > objProp)
+	map.mapSave("lvl1", objShapes, objProp);
 	return 0;
+}
+
+void fillObjProp() {
+	for(int i = 0; i < objects.size(); i++) {
+		objProp[i].push_back(objects[i].getObjCollidable());
+		objProp[i].push_back(objects[i].isVisible());
+		objProp[i].push_back(objects[i].getType());
+		objProp[i].push_back(objects[i].getSpeed());
+	}
+	/*
+	bool objectIsCollidable;
+	bool isVis;
+
+	int objectType;
+	int objectSpeed;
+	*/
 }
 
 void setObjShapes() {

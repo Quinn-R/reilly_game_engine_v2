@@ -1,5 +1,5 @@
 #include "Object.hpp"
 
-std::string Object::getType() {
+int Object::getType() {
 	return objectType;
 }

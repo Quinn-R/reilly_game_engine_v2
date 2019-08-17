@@ -1,5 +1,5 @@
 #include "Object.hpp"
 
-void Object::setType(std::string objType) {
+void Object::setType(int objType) {
     objectType = objType;
 }

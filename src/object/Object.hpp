@@ -5,12 +5,12 @@
 
 class Object {
 private:
-	std::string objectType;
 	sf::RectangleShape objectShape;
 
 	bool objectIsCollidable;
 	bool isVis;
 
+	int objectType;
 	int objectSpeed;
 public:
 	Object();
@@ -25,14 +25,16 @@ public:
 	sf::RectangleShape getShape();
 	int getSpeed();
 
-	void setType(std::string objType);
-	std::string getType();
+	void setType(int objType);
+	int getType();
 
 	void setOrigin(sf::Vector2f objOrigin);
 	void setRotation(float objRotation);
 
 	void setVisible(bool vis);
 	bool isVisible();
+
+	bool getObjCollidable();
 };
 
 #endif

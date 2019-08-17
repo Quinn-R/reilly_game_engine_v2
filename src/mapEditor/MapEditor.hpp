@@ -21,6 +21,9 @@ public:
 	int createObj(sf::Vector2f gridSize, std::vector<sf::RectangleShape> &objShapes, sf::RenderWindow &window);
 	int deleteObj(std::vector<sf::RectangleShape> &objShapes, sf::RenderWindow &window);
 	sf::Vector2f getObjPos();
+
+	void mapSave(std::string lvlName, std::vector<sf::RectangleShape> &objShapes, std::vector<std::vector<int> > objProp);
+	void mapLoad();
 };
 
 #endif

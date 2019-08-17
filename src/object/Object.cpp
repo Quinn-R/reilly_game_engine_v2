@@ -1,8 +1,6 @@
 #include "Object.hpp"
 
 Object::Object() {
-	objectType = "default";
-
 	objectShape.setSize(sf::Vector2f(32, 32));
 	objectShape.setPosition(sf::Vector2f(0, 0));
 	objectShape.setFillColor(sf::Color::Blue);
@@ -11,6 +9,7 @@ Object::Object() {
 	objectIsCollidable = 0;
 	isVis = 1;
 
+	objectType = 0;
 	objectSpeed = 100;
 }
 
