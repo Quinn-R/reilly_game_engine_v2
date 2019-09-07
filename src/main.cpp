@@ -11,7 +11,7 @@ void setObjShapes();
 void resetObjShapes();
 void fillObjProp();
 
-Graphics graphics;
+Graphics graphics(500, 500, 0, "HelloWorld");
 Input input;
 Move move;
 TimeUtil timer;
