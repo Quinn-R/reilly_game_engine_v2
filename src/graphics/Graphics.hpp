@@ -10,8 +10,9 @@ private:
 	sf::View view;
 public:
 	Graphics();
+	Graphics(int x, int y, bool full, std::string windowName);
 	~Graphics();
-	
+
 	void clear();
 	void clear(sf::Color col);
 	void draw();
@@ -20,9 +21,9 @@ public:
 	void drawEntity(sf::RectangleShape objShape);
 	void drawEntity(std::vector<sf::RectangleShape> &objShapes);
 	void display();
-	
+
 	bool isOpen();
-	
+
 	sf::RenderWindow& getWindow();
 };
 

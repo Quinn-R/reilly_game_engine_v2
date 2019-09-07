@@ -9,4 +9,15 @@ Graphics::Graphics() {
 	//window.setView(view);
 }
 
+Graphics::Graphics(int x, int y, bool full, std::string windowName) {
+    windowRes.x = x;
+    windowRes.y = y;
+
+    if(full == 1) {
+        window.create(sf::VideoMode(windowRes.x, windowRes.y), windowName, sf::Style::Fullscreen);
+    } else {
+        window.create(sf::VideoMode(windowRes.x, windowRes.y), windowName);
+    }
+}
+
 Graphics::~Graphics() {}
