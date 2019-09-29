@@ -24,7 +24,8 @@ std::vector<sf::RectangleShape> objShapes;
 std::vector<std::vector<int> > objProp;
 
 int main() {
-	objects.push_back(Object());
+	//objects.push_back(Object());
+	map.mapLoad("lvl1.txt");
 
 	while(graphics.isOpen()) {
 		timer.setTime();
