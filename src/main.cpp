@@ -42,7 +42,7 @@ int main() {
 
 		if(input.getLeftMousePressed()) {
 			if(map.createObj(sf::Vector2f(32, 32), objShapes, graphics.getWindow())) {
-				objects.push_back(Object("na", sf::Vector2f(32, 32), map.getObjPos(), sf::Color::Black, 1, 1, 0));
+				objects.push_back(Object(1, sf::Vector2f(32, 32), map.getObjPos(), sf::Color::Black, 1, 1, 0));
 			}
 		}
 
@@ -54,31 +54,31 @@ int main() {
 		}
 
 		resetObjShapes();
-		std::cout << objShapes.size() << std::endl;
+		//std::cout << objShapes.size() << std::endl;
 
 		graphics.draw(sf::Color::White, objShapes);
 	}
 
 	fillObjProp();
 	// (std::string lvlName, std::vector<sf::RectangleShape> &objShapes, std::vector<std::vector<<int> > objProp)
-	map.mapSave("lvl1", objShapes, objProp);
+	map.mapSave("lvl1.txt", objShapes, objProp);
 	return 0;
 }
 
 void fillObjProp() {
+	objProp.resize(objects.size());
 	for(int i = 0; i < objects.size(); i++) {
+		objProp[i].push_back(objects[i].getSize().x);
+        objProp[i].push_back(objects[i].getSize().y);
+        objProp[i].push_back(objects[i].getPosition().x);
+        objProp[i].push_back(objects[i].getPosition().y);
+        objProp[i].push_back(objects[i].getOrigin().x);
+        objProp[i].push_back(objects[i].getOrigin().y);
 		objProp[i].push_back(objects[i].getObjCollidable());
 		objProp[i].push_back(objects[i].isVisible());
 		objProp[i].push_back(objects[i].getType());
 		objProp[i].push_back(objects[i].getSpeed());
 	}
-	/*
-	bool objectIsCollidable;
-	bool isVis;
-
-	int objectType;
-	int objectSpeed;
-	*/
 }
 
 void setObjShapes() {

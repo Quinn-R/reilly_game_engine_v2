@@ -5,10 +5,14 @@ void MapEditor::mapSave(std::string lvlName, std::vector<sf::RectangleShape> &ob
     outFile.open(lvlName);
 
     for(int i = 0; i < objShapes.size(); i++) {
-        outFile << objShapes[i].getSize() << objShapes[i].getPosition() << objShapes[i].getFillColor() << objShapes[i].getOrigin();
-        for(int i = 0; i < objProp.size(); i++) {
-            outFile << objProp[i];
+        for(int j = 0; j < objProp[i].size(); j++) {
+            if(j != 0) {
+                outFile << "/";
+            }
+            outFile << objProp[i][j];
         }
+
+        outFile << ";\n";
     }
 
     outFile.close();

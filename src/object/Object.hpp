@@ -14,7 +14,7 @@ private:
 	int objectSpeed;
 public:
 	Object();
-	Object(std::string objType, sf::Vector2f objSize, sf::Vector2f objPos, sf::Color col, bool isColl, bool vis, int objSpeed);
+	Object(int objType, sf::Vector2f objSize, sf::Vector2f objPos, sf::Color col, bool isColl, bool vis, int objSpeed);
 
 	void setPosition(sf::Vector2f);
 	sf::Vector2f getPosition();
@@ -29,6 +29,8 @@ public:
 	int getType();
 
 	void setOrigin(sf::Vector2f objOrigin);
+	sf::Vector2f getOrigin();
+
 	void setRotation(float objRotation);
 
 	void setVisible(bool vis);

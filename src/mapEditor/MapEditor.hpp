@@ -23,7 +23,7 @@ public:
 	sf::Vector2f getObjPos();
 
 	void mapSave(std::string lvlName, std::vector<sf::RectangleShape> &objShapes, std::vector<std::vector<int> > objProp);
-	void mapLoad();
+	std::vector<std::vector<int> > mapLoad();
 };
 
 #endif
